@@ -8,6 +8,8 @@
 
 import { checkForMissingPlugins } from '@mapstore/utils/DebugUtils';
 import main from '@mapstore/product/main';
+import appConfig from './appConfig';
+import pluginsDef from './plugins';
 const ConfigUtils = require('@mapstore/utils/ConfigUtils').default;
 /**
  * Add custom (overriding) translations with:
@@ -40,15 +42,15 @@ ConfigUtils.setLocalConfigurationFile('./js/localConfig.json');
  *     }]
  * });
  */
-const appConfig = require('@mapstore/product/appConfig').default;
+// const appConfig = require('@mapstore/product/appConfig').default;
 
 /**
  * Define a custom list of plugins with:
  *
  * const plugins = require('./plugins');
  */
-const plugins = require('@mapstore/product/plugins').default;
+// const plugins = require('@mapstore/product/plugins').default;
 
-checkForMissingPlugins(plugins.plugins);
+checkForMissingPlugins(pluginsDef.plugins);
 
-main(appConfig, plugins);
+main(appConfig, pluginsDef);

@@ -368,6 +368,7 @@
     ],
     "desktop": [
       "Details",
+      "Minimal",
       {
         "name": "Map",
         "cfg": {
