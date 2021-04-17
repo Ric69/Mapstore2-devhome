@@ -13,7 +13,7 @@ export default {
     plugins: {
 
         // personnal plugins
-        MinimalPlugin: require('./plugins/Minimal'),
+        MinimalPlugin: require('@js/plugins/Minimal'),
         // product plugins
         AboutPlugin: require('@mapstore/product/plugins/About').default,
         AttributionPlugin: require('@mapstore/product/plugins/Attribution').default,

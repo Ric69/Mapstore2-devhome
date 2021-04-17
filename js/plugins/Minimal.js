@@ -14,11 +14,16 @@ class MinimalPlugin extends React.Component {
     render() {
         const mystyle = {
             position: 'absolute',
-            top: '100px',
+            top: '150px',
             left: '100px',
             zIndex: 10000000,
-            background: 'white'
-            
+            background: 'white',
+            border-radius:'5px',
+            border-width: '3px',
+            border-style:solid,
+            width:'200px',
+            height:'60px'
+
         };
         return <div style = { mystyle } > Minimal Plugin </div>;
     }
