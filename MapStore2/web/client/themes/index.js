@@ -7,5 +7,7 @@ module.exports = [{
 }, {
     id: "dark"
 }, {
+    id: "persoth"
+}, {
     id: "geosolutions"
 }];

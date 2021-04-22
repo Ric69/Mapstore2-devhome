@@ -12,8 +12,19 @@
 export default {
     plugins: {
 
-        // personnal plugins
-        MinimalPlugin: require('@js/plugins/Minimal'),
+        // plugins personnel
+        // MinimalPlugin: require('@js/plugins/Minimal/Minimal'),
+        // CalculSeismePlugin: require('@js/plugins/CalculSeisme/CalculSeisme'),
+        // CalSeismePlugin: require('@js/plugins/CalSeisme/CalSeisme'), 
+        // ConnectedSamplePlugin: require('@js/plugins/ConnectedSample/ConnectedSample'),        
+        // ContainedPlugin: require('@js/plugins/ConnectedSample/ContainedComponent'),
+        // ContainerPlugin: require('@js/plugins/ConnectedSample/ContainerComponent'),
+        // SamplePlugin: require('@js/plugins/Sample/Sample'),
+        // SideEffectPlugin: require('@js/plugins/ConnectedSample/SideEffectComponent'),  
+        // SampleAboutPlugin: require('@js/plugins/SampleAbout/SampleAbout'),
+        // SeismePlugin: require('@js/plugins/Seisme/Seisme'),
+        AZoomPlugin: require('@js/plugins/AZoom/ZoomSample'),
+    
         // product plugins
         AboutPlugin: require('@mapstore/product/plugins/About').default,
         AttributionPlugin: require('@mapstore/product/plugins/Attribution').default,

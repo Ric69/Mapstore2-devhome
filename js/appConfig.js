@@ -92,6 +92,11 @@ export default {
     }],
     initialState: {
         defaultState: {
+            theme: {
+                selectedTheme: {
+                    id: "geosolutions"
+                }
+            },
             mousePosition: {enabled: false},
             controls: {
                 help: {
