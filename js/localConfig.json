@@ -368,6 +368,7 @@
     ],
     "desktop": [
       "Details",
+      "AppSeisme",
       "AZoom",
       {
         "name": "Map",

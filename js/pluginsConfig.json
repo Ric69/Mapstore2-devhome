@@ -137,6 +137,15 @@
       "description": "plugins.Details.description"
     },
     {
+      "name": "AppSeisme",
+      "glyph": "asterisk",
+      "title": "Plugin AppSeisme",
+      "description": "Ajoiut plugin Perso AppSeisme",
+      "dependencies": [
+        "BurgerMenu"
+      ]
+    },
+    {
       "name": "AZoom",
       "glyph": "asterisk",
       "title": "Plugin Azoom",

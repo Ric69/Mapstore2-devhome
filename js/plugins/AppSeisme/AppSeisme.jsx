@@ -1,54 +1,112 @@
+/*
+ * Copyright 2021, CNR
+ * All rights reserved.
+*/
+
 import assign from 'object-assign';
 import React from 'react';
-import { Glyphicon } from "react-bootstrap";
+import { pick, get } from 'lodash';
+import { Glyphicon } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
+import { toggleControl } from '@mapstore/actions/controls';
+import AppSeismeComp from './seisme/AppSeisme';
 import { FaJedi } from 'react-icons/fa';
-import { setControlProperty, toggleControl } from '@mapstore/actions/controls';
-import { ZOOM_TO_POINT } from '@js/actions/appseisme';
-import appSeismeReducer from "@js/reducers/appseisme";
-require('./appseisme.css');
+// import { createPlugin } from "@mapstore/utils/PluginsUtils";
+const DEFAULTS = ["mapstore2", "wmc"];
+const AppSeisme = connect((state) => ({
+    enabled: state.controls && state.controls.appseisme && state.controls.appseisme.enabled || false,
+    withButton: false
+}), {
+    onClose: toggleControl.bind(null, 'appseisme', null)
+})(AppSeismeComp);
 
-let x = 4.813035;
-let y = 45.775287;
-class AppSeismeComponent extends React.Component {
-    render() {
-        // const style = {position: "absolute", top: "10px", left: "100px", background: "#55006A", color: "#ffffff", zIndex: 1000000};
-      
-        return (
-            <div style={style}>
-                <button className="btn btn-info" data-toggle="tooltip" data-placement="top" id="zoomseisme" title="zoom emprise carte" onClick={() => console.log('je suis passé dans la fonction! - x: '+x+' - y: '+y)} >
-                    &nbsp;Mon Bouton plugin perso&nbsp;
-                </button>
-            </div>
-        );
-    }
-}
 
-const toggleAppSeismeTool = toggleControl.bind(null, 'appseisme', null);
-// export const AppSeismePlugin = AppSeismeComponent;
+// export default createPlugin("AppSeisme", {
+//     component: AppSeisme,
+//     containers: {
+//          BurgerMenu: {
+//                 name: 'AppSeisme',
+//                 position: 3,
+//                 text: "Application Seisme",
+//                 icon: <Glyphicon glyph="asterisk" />,
+//                 action: toggleControl.bind(null, 'appseisme', null),
+//                 priority: 1,
+//                 alwaysVisible: true,
+//                 doNotHide: true
+//             },
+//             OmniBar: {
+//                 name: 'AppSeisme',
+//                 position: 10,
+//                 tool: true,
+//                 icon: <Glyphicon glyph="asterisk" />,
+//                 action: toggleControl.bind(null, 'appseisme', null),
+//                 priority: 2,
+//                 alwaysVisible: true,
+//                 doNotHide: true
+//             }
+//     }
+// });
 
 export default {
-    AppSeismePlugin: assign(AppSeismeComponent, {
-        BurgerMenu: {
-            name: 'seisme',
-            position: 1,
-            text: "Application Seisme",
-            icon: <FaJedi />,
-            action: () => toggleAppSeismeTool,
-            priority: 1,
-            alwaysVisible: true,
-            doNotHide: true
-        },
-        OmniBar: {
-            name: 'seisme',
-            position: 5,
-            tool: true,
-            icon: <FaJedi />,
-            action: () => toggleAppSeismeTool,
-            priority: 2,
-            alwaysVisible: true,
-            doNotHide: true
-        }
-    }),
-    reducers: {appSeismeReducer}
+    AppSeismePlugin: assign(AppSeisme,
+        {
+            disablePluginIf: "{state('mapType') === 'cesium'}",
+            BurgerMenu: {
+                name: 'AppSeisme',
+                position: 3,
+                text: "Application Seisme",
+                icon: <FaJedi />,
+                action: toggleControl.bind(null, 'appseisme', null),
+                priority: 1,
+                alwaysVisible: true,
+                doNotHide: true
+            },
+            OmniBar: {
+                name: 'AppSeisme',
+                position: 10,
+                tool: true,
+                icon: <FaJedi />,
+                action: toggleControl.bind(null, 'appseisme', null),
+                priority: 2,
+                alwaysVisible: true,
+                doNotHide: true
+            }
+        }),
+    reducers: {}
 };
+
+// const AppSeismePlugin = {
+//     AppSeismePlugin: assign(AppSeisme, {
+//         disablePluginIf: "{state('mapType') === 'cesium'}",
+//         BurgerMenu: config => {
+//             const enabledFormats = get(config, 'cfg.enabledFormats', DEFAULTS);
+//             return {
+//                 name: 'AppSeisme',
+//                 position: 3,
+//                 text: "Application Seisme",
+//                 icon: <Glyphicon glyph="asterisk" />,
+//                 action: toggleControl.bind(null, 'appseisme', null),
+//                 priority: 1,
+//                 alwaysVisible: true,
+//                 doNotHide: true
+//             };
+//         },
+//         OmniBar: config => {
+//             const enabledFormats = get(config, 'cfg.enabledFormats', DEFAULTS);
+//             return {    
+//                 name: 'AppSeisme',
+//                 position: 10,
+//                 tool: true,
+//                 icon: <Glyphicon glyph="asterisk" />,
+//                 action: toggleControl.bind(null, 'appseisme', null),
+//                 priority: 2,
+//                 alwaysVisible: true,
+//                 doNotHide: true
+//             }
+//         }
+//     })
+//     // reducers: {}
+//     // epics: epics
+// };
+// export default AppSeismePlugin;

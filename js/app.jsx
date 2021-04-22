@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// import { checkForMissingPlugins } from '@mapstore/utils/DebugUtils';
+import { checkForMissingPlugins } from '@mapstore/utils/DebugUtils';
 import main from '@mapstore/product/main';
 import appConfig from './appConfig';
 import pluginsDef from './plugins';
@@ -54,6 +54,6 @@ ConfigUtils.setLocalConfigurationFile('./js/localConfig.json');
  */
 // const plugins = require('@mapstore/product/plugins').default;
 
-// checkForMissingPlugins(pluginsDef.plugins);
+checkForMissingPlugins(pluginsDef.plugins);
 
 main(appConfig, pluginsDef);

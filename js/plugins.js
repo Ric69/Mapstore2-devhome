@@ -23,8 +23,7 @@ export default {
         // SideEffectPlugin: require('@js/plugins/ConnectedSample/SideEffectComponent'),  
         // SampleAboutPlugin: require('@js/plugins/SampleAbout/SampleAbout'),
         // SeismePlugin: require('@js/plugins/Seisme/Seisme'),
-        AZoomPlugin: require('@js/plugins/AZoom/ZoomSample'),
-    
+      
         // product plugins
         AboutPlugin: require('@mapstore/product/plugins/About').default,
         AttributionPlugin: require('@mapstore/product/plugins/Attribution').default,
@@ -40,7 +39,9 @@ export default {
         // framework plugins
         AddGroupPlugin: require('@mapstore/plugins/AddGroup').default,
         AnnotationsPlugin: require('@mapstore/plugins/Annotations').default,
+        AppSeismePlugin: require('@js/plugins/AppSeisme/AppSeisme').default,
         AutoMapUpdatePlugin: require('@mapstore/plugins/AutoMapUpdate').default,
+        AZoomPlugin: require('@js/plugins/AZoom/ZoomSample'),
         BackgroundSelectorPlugin: require('@mapstore/plugins/BackgroundSelector').default,
         BurgerMenuPlugin: require('@mapstore/plugins/BurgerMenu').default,
         CRSSelectorPlugin: require('@mapstore/plugins/CRSSelector').default,
