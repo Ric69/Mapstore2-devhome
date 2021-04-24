@@ -5,7 +5,7 @@
  * This source code is licensed under the BSD-style license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+const config = require('./localConfig.json');
 export default {
     pages: [{
         name: "home",
@@ -90,6 +90,7 @@ export default {
         path: "/geostory/shared/:gid/section/:sectionId/column/:columnId",
         component: require('@mapstore/product/pages/GeoStory').default
     }],
+    pluginsDef: require('@js/plugins.js'),
     initialState: {
         defaultState: {
             theme: {

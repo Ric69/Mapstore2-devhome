@@ -16,7 +16,8 @@ import { Message } from '@mapstore/components/I18N/I18N';
 import aboutImg from '@mapstore/product/assets/img/Blank.gif';
 import assign from 'object-assign';
 import { Glyphicon } from 'react-bootstrap';
-
+require('./appseisme.css');
+import seismeLogo from './img/Seisme_r.png';
 class AppSeisme extends React.Component {
     static propTypes = {
         style: PropTypes.object,
@@ -61,7 +62,7 @@ class AppSeisme extends React.Component {
             >
                 <span role="header">
                     <span className="appseisme-panel-title">
-                        <h1>Application Séisme</h1>
+                        <img src={seismeLogo} style={{ display:"inline", margin:"auto", maxWidth:"7%", height:"7%", width:"7%" }} alt="Séisme CNR" />&nbsp;&nbsp;&nbsp;&nbsp;Application Séisme
                     </span>
                     <button onClick={this.props.onClose} className="appseisme-panel-close close">
                         {this.props.modalConfig.closeGlyph ? <Glyphicon glyph={this.props.modalConfig.closeGlyph}/> : <span>×</span>}

@@ -368,7 +368,17 @@
     ],
     "desktop": [
       "Details",
-      "AppSeisme",
+      {
+        "name": "AppSeisme",
+        "override": {
+          "BurgerMenu": {
+            "position": 4
+          },
+          "OmniBar": {
+            "position": 5
+          }
+        }
+      },
       "AZoom",
       {
         "name": "Map",
@@ -399,6 +409,21 @@
       "AutoMapUpdate",
       "HelpLink",
       "DrawerMenu",
+      {
+        "name": "Drawing",
+        "override": {
+          "Toolbar": {
+            "position": 10,
+            "alwaysVisible": true
+          }
+        },
+        "widget": {
+          "name": "drawing.title",
+          "dependencies": [
+            "Toolbar"
+          ]
+        }
+      },
       "Version",
       "Notifications",
       "BackgroundSelector",
@@ -627,7 +652,14 @@
       "Login",
       "Save",
       "SaveAs",
-      "BurgerMenu",
+      {
+        "name": "BurgerMenu",
+        "override": {
+          "Omnibar": {
+            "position": 2
+          }
+        }
+      },
       "Expander",
       "Undo",
       "Redo",

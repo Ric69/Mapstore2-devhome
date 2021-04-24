@@ -152,6 +152,12 @@
       "description": "Ajoiut plugin Perso AZoom"
     },
     {
+      "name": "Drawing",
+      "glyph": "asterisk",
+      "title": "Plugin Drawing",
+      "description": "Ajoiut plugin Perso Drawing"
+    },
+    {
       "name": "HelpLink",
       "glyph": "question-sign",
       "title": "plugins.HelpLink.title",

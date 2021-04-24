@@ -12,7 +12,7 @@ import React from 'react';
 // import msLogo from '@mapstore/assets/img/mapstore-logo-0.20.png';
 // import seismeLogo from '@js/plugins/AppSeisme/seisme/img/Seisme_r.png';
 import seismeLogo from './img/Seisme_r.png';
-
+require('./appseisme.css');
 class AppSeisme extends React.Component {
     constructor(props) {
         super(props);
@@ -44,12 +44,15 @@ class AppSeisme extends React.Component {
         });
     };
 
+    // handleChangeR1 = f => {
+    //         this.setState({
+    //         f.target.value = ({Math.round(Math.pow(10, 0.58 + 0.25 * this.state.inputValm) * 1000 * 10) / 10000}{" "} kms)
+    //     });
+    // };
+
     render() {
         return (
             <div className="AppZonetext">
-                <img src={seismeLogo} style={{ display:"block", margin:"auto", maxWidth:"37%", height:"37%", width:"37%" }} alt="Séisme CNR" />
-                 <h1>Séisme</h1>
-                 <br />
                 <label>Date :</label>
                 <input id="seismedat" className="form-control" type="text" name="inputVald" value={this.state.inputVald} onChange={e => this.handleChange(e)} />
                 <br />
@@ -57,7 +60,7 @@ class AppSeisme extends React.Component {
                 <input id="seismemag" className="form-control" type="text" name="inputValm" value={this.state.inputValm} onChange={e => this.handleChange(e)} />
                 <br />
                 <label>Latitude :</label>
-                <input id="seismelat" className="form-control" type="text" ame="inputValla" value={this.state.inputValla} onChange={e => this.handleChange(e)} />
+                <input id="seismelat" className="form-control" type="text" name="inputValla" value={this.state.inputValla} onChange={e => this.handleChange(e)} />
                 <br />
                 <label>Longitude :</label>
                 <input id="seismelon" className="form-control" type="text" name="inputVallo" value={this.state.inputVallo} onChange={e => this.handleChange(e)} />
@@ -66,6 +69,7 @@ class AppSeisme extends React.Component {
                 <div id="valz1">
                     <b>Rayon Zone 1 : </b>
                     {Math.round(Math.pow(10, 0.58 + 0.25 * this.state.inputValm) * 1000 * 10) / 10000}{" "} kms
+                     {/* <input id="seismer1" className="form-control" type="text" name="inputValr1" value={this.state.inputValr1} onChange={f => this.handleChangeR1(f)} /> */}
                 </div>
                 <br />
                 <div id="valz2">
@@ -74,7 +78,8 @@ class AppSeisme extends React.Component {
                 </div>
                 <br />
                 <hr />
-                <button className="btn btn-success"  id="calseisme" onClick={e => this.onSubmit(e)} > Calcul ! </button>
+                <button className="btn btn-success"  id="calseisme" onClick={e => this.onSubmit(e)} ><img src={seismeLogo} style={{ display:"inline", margin:"0", maxWidth:"10%", height:"10%", width:"10%" }} alt="Séisme CNR" />&nbsp;&nbsp;Calcul Séisme!</button>
+                {/* <button className="btn btn-danger" onClick={() => this.props.addPointtoMap(ZOOM_ADD_POINT, this.props.addPoint([x,y], 8,"EPSG:4326"))}>ADD POINT</button> */}
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <button className="btn btn-info" id="listseisme" onClick={e => this.onSubmit2(e)} > Liste Impact ! </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
